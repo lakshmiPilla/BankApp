@@ -1,0 +1,14 @@
+C:\csharp\BankApp\BankApp\bin\Debug\BankApp.exe.config
+C:\csharp\BankApp\BankApp\bin\Debug\BankApp.exe
+C:\csharp\BankApp\BankApp\bin\Debug\BankApp.pdb
+C:\csharp\BankApp\BankApp\obj\Debug\BankApp.csprojResolveAssemblyReference.cache
+C:\csharp\BankApp\BankApp\obj\Debug\BankApp.csproj.CoreCompileInputs.cache
+C:\csharp\BankApp\BankApp\obj\Debug\BankApp.exe
+C:\csharp\BankApp\BankApp\obj\Debug\BankApp.pdb
+C:\GitHub\BankApp\BankApp\obj\Debug\BankApp.csprojResolveAssemblyReference.cache
+C:\GitHub\BankApp\BankApp\obj\Debug\BankApp.csproj.CoreCompileInputs.cache
+C:\GitHub\BankApp\BankApp\obj\Debug\BankApp.exe
+C:\GitHub\BankApp\BankApp\obj\Debug\BankApp.pdb
+C:\GitHub\BankApp\BankApp\bin\Debug\BankApp.exe.config
+C:\GitHub\BankApp\BankApp\bin\Debug\BankApp.exe
+C:\GitHub\BankApp\BankApp\bin\Debug\BankApp.pdb
