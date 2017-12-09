@@ -32,42 +32,68 @@ namespace BankApp
             Console.WriteLine("********************************************");
             Console.WriteLine("Welcome to Bank");
             Console.WriteLine("*********************************************");
-            Console.WriteLine("0.Exit");
-            Console.WriteLine("1.Create an account");
-            Console.WriteLine("2.Deposit");
-            Console.WriteLine("3.Withdraw");
-            Console.WriteLine("4.Print all accounts");
-
-            Console.WriteLine("Please select an option");
-            var choice = Console.ReadLine();
-
-            switch (choice)
+            while (true)
             {
-                case "0":
-                    Console.WriteLine("Thank you for visiting");
-                    return;
-           
-                case "1":
-                    Console.Write("Email address:");
-                    var emailAddress=Console.ReadLine();
-                    Console.Write("Account Name:");
-                    var accountName = Console.ReadLine();
-                    var typeofAccounts = Enum.GetNames(typeof(TypeOfAccount));
-                    
+                Console.WriteLine("0.Exit");
+                Console.WriteLine("1.Create an account");
+                Console.WriteLine("2.Deposit");
+                Console.WriteLine("3.Withdraw");
+                Console.WriteLine("4.Print all accounts");
 
-                    break;
-                case "2":
-                    break;
-                case "3":
-                    break;
-                case "4":
-                    break;
-                default:
-                    break;
+                Console.Write("Please select an option:");
+                var choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "0":
+                        Console.WriteLine("Thank you for visiting");
+                        return;
+
+                    case "1":
+                        Console.Write("Email address:");
+                        var emailAddress = Console.ReadLine();
+                        Console.Write("Account Name:");
+                        var accountName = Console.ReadLine();
+                        var typeofAccounts = Enum.GetNames(typeof(TypeOfAccount));
+                        for (var i = 0; i < typeofAccounts.Length; i++)
+                        {
+                            Console.WriteLine($"{i + 1}.{typeofAccounts[i]}");
+                        }
+                        Console.Write("Select type of Account:");
+                        var accountType = Convert.ToInt32(Console.ReadLine());
+                        var account = Bank.CreateAccount(emailAddress, accountName, (TypeOfAccount)(accountType - 1));
+                        Console.WriteLine($"ANumber:{account.AccountNumber},Balance:{account.Balance},TOA:{account.AccountType}");
+                        break;
+                    case "2":
+                        PrintAllAccounts();
+                        Console.Write("Account nmber:");
+                        var an = Convert.ToInt32(Console.ReadLine());
+                        Console.Write("Amount to deposit:");
+                        var amount = Convert.ToDecimal(Console.ReadLine());
+                        Bank.Deposit(an, amount);
+                            break;
+                    case "3":
+                        break;
+                    case "4":
+                        PrintAllAccounts();
+                        ; break;
+                    default:
+                        Console.WriteLine("Invalid choice, please try again");
+                        break;
+                }
             }
 
+        }
 
-        } 
+        private static void PrintAllAccounts()
+        {
+            var accounts = Bank.GetAllAccounts();
+            foreach (var acc in accounts)
+            {
+                Console.WriteLine($"ANumber:{acc.AccountNumber},Balance:{acc.Balance},TOA:{acc.AccountType}");
+
+            }
+        }
     }
 }
 
