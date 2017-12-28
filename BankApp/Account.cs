@@ -1,25 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BankApp
 {
-    enum TypeOfAccount
+    public enum TypeOfAccount
     {
         Checking,
         Savings,
         CD,
         Loan
     }
-    class Account
+    public class Account
     {
-        private static int lastAccountNumber = 0;
+      //  private static int lastAccountNumber = 0;
         #region Constructor
         public Account()
         {
-            AccountNumber = ++lastAccountNumber;
+            //AccountNumber = ++lastAccountNumber;
         }
         //when we are calling 2nd constructor, THIS keyword calls other Constructer also
         //public Account(string emailaddress): this()
@@ -33,6 +34,7 @@ namespace BankApp
         #endregion
         
         #region Properties
+            [Key]
         public int AccountNumber { get; private set; }
         public string Emailaddress { get; set; }
         public string AccountName { get; set; }

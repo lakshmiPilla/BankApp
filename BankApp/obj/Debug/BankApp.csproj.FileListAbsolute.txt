@@ -12,3 +12,7 @@ C:\GitHub\BankApp\BankApp\obj\Debug\BankApp.pdb
 C:\GitHub\BankApp\BankApp\bin\Debug\BankApp.exe.config
 C:\GitHub\BankApp\BankApp\bin\Debug\BankApp.exe
 C:\GitHub\BankApp\BankApp\bin\Debug\BankApp.pdb
+C:\GitHub\BankApp\BankApp\bin\Debug\EntityFramework.dll
+C:\GitHub\BankApp\BankApp\bin\Debug\EntityFramework.SqlServer.dll
+C:\GitHub\BankApp\BankApp\bin\Debug\EntityFramework.xml
+C:\GitHub\BankApp\BankApp\bin\Debug\EntityFramework.SqlServer.xml

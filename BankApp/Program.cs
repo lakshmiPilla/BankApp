@@ -87,7 +87,9 @@ namespace BankApp
 
         private static void PrintAllAccounts()
         {
-            var accounts = Bank.GetAllAccounts();
+            Console.Write("Email Address:");
+            var emailAddress = Console.ReadLine();
+            var accounts = Bank.GetAllAccounts(emailAddress);
             foreach (var acc in accounts)
             {
                 Console.WriteLine($"ANumber:{acc.AccountNumber},Balance:{acc.Balance},TOA:{acc.AccountType}");
