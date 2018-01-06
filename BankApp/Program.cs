@@ -76,7 +76,17 @@ namespace BankApp
                         break;
                     case "4":
                         PrintAllAccounts();
-                        ; break;
+                        break;
+                    case "5":
+                        PrintAllAccounts();
+                        Console.Write("Account nmber:");
+                         an = Convert.ToInt32(Console.ReadLine());
+                        var transactions = Bank.GetAllAccounts(an);
+                        {
+                            Console.WriteLine($"TransactionType:{}")
+                        }
+
+                        break;
                     default:
                         Console.WriteLine("Invalid choice, please try again");
                         break;

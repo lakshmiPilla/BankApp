@@ -36,6 +36,7 @@ namespace BankApp
         #region Properties
             [Key]
         public int AccountNumber { get; private set; }
+        [StringLength(100, ErrorMessage ="Emailaddress should be of 50 characters in Length")]
         public string Emailaddress { get; set; }
         public string AccountName { get; set; }
         public TypeOfAccount AccountType { get; set; }
@@ -52,7 +53,7 @@ namespace BankApp
             Balance += amount;
         }
 
-        public void withdraw(decimal amount)
+        public void Withdraw(decimal amount)
         {
             Balance -= amount;
         }
