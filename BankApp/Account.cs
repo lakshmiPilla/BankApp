@@ -16,7 +16,7 @@ namespace BankApp
     }
     public class Account
     {
-      //  private static int lastAccountNumber = 0;
+        //  private static int lastAccountNumber = 0;
         #region Constructor
         public Account()
         {
@@ -32,13 +32,15 @@ namespace BankApp
 
         //}
         #endregion
-        
+
         #region Properties
-            [Key]
+        [Key]
         public int AccountNumber { get; private set; }
-        [StringLength(100, ErrorMessage ="Emailaddress should be of 50 characters in Length")]
+        [StringLength(100, ErrorMessage = "Emailaddress should be of 50 characters in Length")]
+        [Required]
         public string Emailaddress { get; set; }
         public string AccountName { get; set; }
+        [Required]
         public TypeOfAccount AccountType { get; set; }
         public decimal Balance { get; private set; }
         #endregion

@@ -39,6 +39,7 @@ namespace BankApp
                 Console.WriteLine("2.Deposit");
                 Console.WriteLine("3.Withdraw");
                 Console.WriteLine("4.Print all accounts");
+                Console.WriteLine("5.Print all transactions");
 
                 Console.Write("Please select an option:");
                 var choice = Console.ReadLine();
@@ -50,19 +51,34 @@ namespace BankApp
                         return;
 
                     case "1":
-                        Console.Write("Email address:");
-                        var emailAddress = Console.ReadLine();
-                        Console.Write("Account Name:");
-                        var accountName = Console.ReadLine();
-                        var typeofAccounts = Enum.GetNames(typeof(TypeOfAccount));
-                        for (var i = 0; i < typeofAccounts.Length; i++)
-                        {
-                            Console.WriteLine($"{i + 1}.{typeofAccounts[i]}");
+                       
+                            Console.Write("Email address:");
+                            var emailAddress = Console.ReadLine();
+                            Console.Write("Account Name:");
+                            var accountName = Console.ReadLine();
+                            var typeofAccounts = Enum.GetNames(typeof(TypeOfAccount));
+                            for (var i = 0; i < typeofAccounts.Length; i++)
+                            {
+                                Console.WriteLine($"{i + 1}.{typeofAccounts[i]}");
+                            }
+                            Console.Write("Select type of Account:");
+                        try { 
+                            var accountType = Convert.ToInt32(Console.ReadLine());
+                            var account = Bank.CreateAccount(emailAddress, accountName, (TypeOfAccount)(accountType - 1));
+                            Console.WriteLine($"ANumber:{account.AccountNumber},Balance:{account.Balance},TOA:{account.AccountType}");
                         }
-                        Console.Write("Select type of Account:");
-                        var accountType = Convert.ToInt32(Console.ReadLine());
-                        var account = Bank.CreateAccount(emailAddress, accountName, (TypeOfAccount)(accountType - 1));
-                        Console.WriteLine($"ANumber:{account.AccountNumber},Balance:{account.Balance},TOA:{account.AccountType}");
+                        catch(FormatException) //handler
+                        {
+                            Console.WriteLine("Account type option is invalid");
+                        }
+                        catch(ArgumentNullException e)
+                        {
+                            Console.WriteLine($"Error-{e.ParamName},{e.Message}");
+                        }
+                        catch(Exception ex)
+                        {
+                            Console.WriteLine($"Something went wrong:{ex.Message}");
+                        }
                         break;
                     case "2":
                         PrintAllAccounts();
@@ -81,9 +97,11 @@ namespace BankApp
                         PrintAllAccounts();
                         Console.Write("Account nmber:");
                          an = Convert.ToInt32(Console.ReadLine());
-                        var transactions = Bank.GetAllAccounts(an);
+                        var transactions = Bank.GetALLTransactions(an);
+                        foreach(var tran in transactions)
                         {
-                            Console.WriteLine($"TransactionType:{}")
+                            Console.WriteLine($"TransactionID:{tran.TransactionId},Transaction Type:{tran.TypeOfTransaction},Transaction Amount: {tran.Transctonamount}," +
+                                $"Transaction Date:{tran.TransactionDate},Description:{tran.Description}");
                         }
 
                         break;
